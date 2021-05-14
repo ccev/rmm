@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+  }
+
+.leaflet-container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.leaflet-polyline {
+    cursor: grab;
+}
+
+.sidebar {
+    background-color: #21262b;
+    margin: 10px;
+    position: fixed;
+    width: 50px;
+    box-shadow: 1px 1px 5px grey;
+}
+
+.sidebar-button {
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+    font-size: 20px;
+}
+
+.sidebar-button.selected {
+    background-color: #21262b;
+    color: white
+}
+
+.sidebar-button.apply {
+    background-color: #18ba41;
+    margin: 12px;
+    position: absolute;
+    bottom: 0px;
+    width: 46px;
+    height: 46px;
+    box-shadow: 1px 1px 5px #383838;
+    font-size: 18px;
+}
+
+.sidebar-button:hover .sidebar-button-icon {
+    transform: scale(0.91);
+}
+
+
+@keyframes sidebar-page-fade-in {
+    from {left: -400px;}
+    to {left: 0;}
+}
+
+@keyframes sidebar-page-fade-out {
+    from {left: 0;}
+    to {left: -1000px;}
+}
+
+.sidebar-page {
+    overflow: auto;
+    background-color: white;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    animation-duration: 200ms;
+    box-shadow: 1px 1px 5px grey;
+}
+
+@media only screen and (min-width: 700px) {
+    .sidebar-page {
+        width: 40%
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .sidebar-page {
+        width: 400px
+    }
+}
+
+.sidebar-page-header {
+    overflow: auto; 
+    width: 100%;
+    padding-left: 70px;
+}
+
+.sidebar-page-header-box {
+    padding: 15px;
+    float: left;
+}
+.sidebar-page-header-box.title {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 23px;
+    font-family: inherit;
+}
+.sidebar-page-header-box.back {
+    float: right;
+    cursor: pointer;
+}
+
+.sidebar-page-content {
+    width: 100%;
+    padding: 15px;
+    padding-left: 90px;
+}
+
+.sidebar-page-option {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.sidebar-page-option-select {
+    padding-top: 5px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d4d4d4;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #bababa;
+}
