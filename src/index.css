@@ -96,6 +96,8 @@ body {
     overflow: auto; 
     width: 100%;
     padding-left: 70px;
+    cursor: pointer;
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
 }
 
 .sidebar-page-header-box {
@@ -110,7 +112,6 @@ body {
 }
 .sidebar-page-header-box.back {
     float: right;
-    cursor: pointer;
 }
 
 .sidebar-page-content {
@@ -121,11 +122,62 @@ body {
 
 .sidebar-page-option {
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
+}
+
+.sidebar-page-option-text {
+    display: inline-block;
 }
 
 .sidebar-page-option-select {
     padding-top: 5px;
+}
+
+.sidebar-page-option-switch {
+    width: 35px;
+    height: 22px;
+    border-radius: 1em;
+    cursor: pointer;
+    float: right;
+    border: 1px solid hsl(0, 0%, 80%);
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+}
+
+@keyframes switch-hover {
+    from {border-color: hsl(0, 0%, 80%);}
+    to {border-color: hsl(0, 0%, 70%);}
+}
+
+@keyframes switch-on {
+    from {margin-left: 2px;
+        background-color: hsl(0, 0%, 80%);}
+    to {margin-left: 15px;
+        background-color: rgb(38, 132, 255)}
+}
+
+@keyframes switch-off {
+    from {margin-left: 15px;
+        background-color: rgb(38, 132, 255)}
+    to {margin-left: 2px;
+        background-color: hsl(0, 0%, 80%);}
+}
+
+.sidebar-page-option-switch:hover {
+    border-color: hsl(0, 0%, 70%);
+    animation: switch-hover 400ms;
+}
+
+.sidebar-page-option-switch-dot {
+    background-color: hsl(0, 0%, 80%);
+    border-radius: 100%;
+    margin: 2px;
+    width: 16px;
+    height: 16px;
+}
+
+.sidebar-page-option-switch-dot.active {
+    background-color: rgb(38, 132, 255);
+    margin-left: 15px;
 }
 
 ::-webkit-scrollbar {

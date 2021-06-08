@@ -1,5 +1,3 @@
-import "../index.css"
-
 function SidebarButton({ setting, clickEvent, isSelected }) {
     let className = "sidebar-button"
     if (isSelected) {

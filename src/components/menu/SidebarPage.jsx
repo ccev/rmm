@@ -1,11 +1,12 @@
-import { FaCaretLeft } from "react-icons/fa"
+import { FaAngleLeft } from "react-icons/fa"
+import { useState } from "react"
 
 function SidebarPageHeader({ title, closeSetting }) {
     return (
-        <div className="sidebar-page-header">
+        <div className="sidebar-page-header" onClick={closeSetting}>
             <div className="sidebar-page-header-box title">{title}</div>
-            <div className="sidebar-page-header-box back" onClick={closeSetting}>
-                <FaCaretLeft style={{width: 25, height: 25}}/>
+            <div className="sidebar-page-header-box back">
+                <FaAngleLeft style={{width: 25, height: 25}}/>
             </div> 
         </div>
     )
@@ -14,25 +15,33 @@ function SidebarPageHeader({ title, closeSetting }) {
 function SidebarOption({ option }) {
     return (
         <div className="sidebar-page-option">
-            {option.title}
+            <span className="sidebar-page-option-text">{option.title}</span>
             {option.modal}
         </div>
     )
 }
 
 export default function SidebarPage({ setting, closeSetting }) {
+    
     let style = {}
 
-    if (setting) {
+    if (setting.close) {
+        if (setting.first) {
+            style = {
+                left: "-1000px"
+            }
+        } else {
+            style = {
+                animationName: "sidebar-page-fade-out",
+                animationDuration: "500ms",
+                left: "-1000px"
+            }
+        }
+        
+    } else {
         style = {
             animationName: "sidebar-page-fade-in",
             animationDuration: "200ms",
-        }
-    } else {
-        style = {
-            animationName: "sidebar-page-fade-out",
-            animationDuration: "500ms",
-            left: "-1000px"
         }
     }
 
@@ -40,7 +49,7 @@ export default function SidebarPage({ setting, closeSetting }) {
         <div className="sidebar-page" style={style}>
             <SidebarPageHeader title={setting.title} closeSetting={closeSetting}/>
             <div className="sidebar-page-content">
-                {setting && setting.options.map((option) => (
+                {!setting.close && setting.options.map((option) => (
                     <SidebarOption key={option.title} option={option}/>
                 ))}
             </div>

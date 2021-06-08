@@ -1,5 +1,5 @@
 import { useMapEvents, useMap, Polyline } from 'react-leaflet'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 function getCells(map, levels) {
     if (levels.length === 0) {
@@ -57,14 +57,9 @@ function getCells(map, levels) {
     return s2polylines
 }
 
-export function GetS2CellsInit({levels, setS2Lines, s2Lines}) {
-    const map = useMap()
-    setS2Lines(getCells(map, levels))
-    return null
-}
 
-
-export function GetS2CellsMove({levels, setS2Lines, s2Lines}) {
+export function GetS2CellsMove({levels}) {
+    const [s2Lines, setS2Lines] = useState([])
     let map = useMapEvents({
         moveend() {
             setS2Lines(getCells(map, levels))
@@ -75,7 +70,7 @@ export function GetS2CellsMove({levels, setS2Lines, s2Lines}) {
     useEffect (() => {
         setS2Lines(getCells(map, levels))
     }, [levels]) // eslint-disable-line react-hooks/exhaustive-deps
-    // Aus den Augen, aus dem Sinn
+    // Aus den Augen aus dem Sinn
 
     if (s2Lines.length > 0) {
         return (

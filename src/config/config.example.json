@@ -1,0 +1,11 @@
+{
+    "auth": {
+        "user": "user",
+        "password": "TODO: stronger password"
+    },
+    "madmin": {
+        "url": "http://127.0.0.1:5000",
+        "user": "swagman12",
+        "password": "strongPass"
+    }
+}
